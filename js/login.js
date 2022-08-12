@@ -11,7 +11,7 @@ loginButton.addEventListener("click", (logeo) =>{
 
     if (usuario && contraseña.length>=6){
         //alert("Se a ingresado de forma correcta");
-        window.location.href = "index.html";
+        window.location.href = "pagina-principal.html";
     } else{
         loginError.style.opacity = 1;
     }
