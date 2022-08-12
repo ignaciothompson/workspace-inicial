@@ -15,7 +15,7 @@ let showSpinner = function(){
 let hideSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "none";
 }
-
+//Toma los datos del Json y los convierte en un objeto
 let getJSONData = function(url){
     let result = {};
     showSpinner();

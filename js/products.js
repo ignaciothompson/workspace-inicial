@@ -1,12 +1,6 @@
-//const AUTOS_URL= "https://japceibal.github.io/emercado-api/cats_products/101.json";
-
-//let data = []
-//fetch(AUTOS_URL)
-    //.then((response) => response.json())
-    //.then((data) => console.log(data))
 
 let categoriesArray = [];
-
+//Esta funcion toma el array obtenido en la funcion document.addEventListener() y lo muestra en el HTML
 function mostrarProductos(array){
     let htmlContentToAppend = "";
     for(let i = 0; i < array.products.length; i++){ 
@@ -35,7 +29,7 @@ function mostrarProductos(array){
 }
 
 
-
+//Ejecuta la funcion getJSONData en init.js y toma los datos del Json los cuales guarda en la variable categoriesArray
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(AUTOS_URL).then(function(resultObj){
         if (resultObj.status === "ok")

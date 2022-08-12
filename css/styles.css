@@ -188,7 +188,7 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
-
+/*Estilos para las categorias*/
 .titulo-cat{
   text-align: center;
   padding-top: 20px;
@@ -198,4 +198,65 @@ a.custom-card:hover {
 .descripcion-cat{
   text-align: center;
   padding-bottom: 20px;
+}
+/*Estilos para la pagina del login*/
+#login-form {
+  align-self: flex-start;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.login-form-field::placeholder {
+  color: #3a3a3a;
+}
+
+.login-form-field {
+  border: none;
+  border-bottom: 1px solid #3a3a3a;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  outline: none;
+  padding: 0px 0px 5px 5px;
+}
+
+#login-form-submit {
+  width: 100%;
+  padding: 7px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  background-color: #3a3a3a;
+  cursor: pointer;
+  outline: none;
+}
+
+#login-error-msg {
+  width: 30%;
+  text-align: center;
+  margin: 0;
+  padding: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #8a0000;
+  border: 1px solid #8a0000;
+  background-color: #e58f8f;
+  opacity: 0;
+}
+
+#login-error-msg-holder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  padding-top: 15px;
+}
+
+#imagen-login {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }

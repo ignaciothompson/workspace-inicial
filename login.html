@@ -18,9 +18,17 @@
 
 <body>
   <main class="mt-5">
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+    <img id="imagen-login" src="img/login.png">
+    <div class="container">"
+      <!--Formulario para el login-->
+      <form id="login-form">
+      <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
+      <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+      <input type="submit" value="Login" id="login-form-submit">
+      </form>
+      <!--Mensaje de error-->
+      <div id="login-error-msg-holder">
+        <p id="login-error-msg" style="opacity: 0;">ERROR, la contraseña debe tener al menos 6 caracteres</p>
       </div>
     </div>
   </main>
