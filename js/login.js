@@ -8,17 +8,17 @@ loginButton.addEventListener("click", (logeo) =>{
     logeo.preventDefault();
     var usuario = loginForm.username.value;
     var contraseña = loginForm.password.value;
-
+    
     if (usuario && contraseña.length>=6){
-        //alert("Se a ingresado de forma correcta");
+        localStorage.setItem("usuario", usuario)
         window.location.href = "pagina-principal.html";
     } else{
         loginError.style.opacity = 1;
     }
 })
 // Desafiate(no funciona)
-function googleSignIn(){
-    if(GoogleUser.isSignedIn()=== true){
-        window.location.href = "pagina-principal.html";
-    }
-}
+//function googleSignIn(){
+//    if(GoogleUser.isSignedIn()=== true){
+//        window.location.href = "pagina-principal.html";
+//    }
+//}
