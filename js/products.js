@@ -31,7 +31,7 @@ function mostrarProductos(array){
 
 //Ejecuta la funcion getJSONData en init.js y toma los datos del Json los cuales guarda en la variable categoriesArray
 document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(AUTOS_URL).then(function(resultObj){
+    getJSONData(PRODUCTOS_URL).then(function(resultObj){
         if (resultObj.status === "ok")
         {
             categoriesArray = resultObj.data;
@@ -42,7 +42,6 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 function mostrarUsuario(){
     let etiquetaUsuario = localStorage.getItem("usuario");
-    console.log(etiquetaUsuario)
     document.getElementById("mostrar-usuario").innerHTML = `<p>` + etiquetaUsuario + `</p>`
 }
 

@@ -195,10 +195,6 @@ a.custom-card:hover {
   padding-bottom: 10px;
 }
 
-.descripcion-cat{
-  text-align: center;
-  padding-bottom: 20px;
-}
 /*Estilos para la pagina del login*/
 #login-form {
   align-self: flex-start;

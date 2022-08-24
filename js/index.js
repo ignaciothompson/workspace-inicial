@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
 function mostrarUsuario(){
     let etiquetaUsuario = localStorage.getItem("usuario");
-    console.log(etiquetaUsuario)
     document.getElementById("mostrar-usuario").innerHTML = `<p>` + etiquetaUsuario + `</p>`
 }
 
