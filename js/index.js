@@ -12,10 +12,3 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 });
-
-function mostrarUsuario(){
-    let etiquetaUsuario = localStorage.getItem("usuario");
-    document.getElementById("mostrar-usuario").innerHTML = `<p>` + etiquetaUsuario + `</p>`
-}
-
-mostrarUsuario()
