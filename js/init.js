@@ -40,7 +40,7 @@ let getJSONData = function(url){
         return result;
     });
 }
-
+//funcion para mostrar el usuario en la part e superior de la pagina
 function mostrarUsuario(){
   let etiquetaUsuario = localStorage.getItem("usuario");
   document.getElementById("mostrar-usuario").innerHTML = `<p>` + etiquetaUsuario + `</p>`

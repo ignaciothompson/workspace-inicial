@@ -10,7 +10,7 @@ loginButton.addEventListener("click", (logeo) =>{
     var contraseña = loginForm.password.value;
     
     if (usuario && contraseña.length>=6){
-        localStorage.setItem("usuario", usuario)
+        localStorage.setItem("usuario", usuario);
         window.location.href = "pagina-principal.html";
     } else{
         loginError.style.opacity = 1;
