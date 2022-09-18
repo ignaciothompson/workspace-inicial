@@ -1,4 +1,3 @@
-//Esta función muestra el usuario en la esquina superior derecha
 
 //Aca comienzan las funciones de Sort y Filter
 const ORDER_ASC_BY_PRICE = "AZ";
@@ -49,7 +48,7 @@ function showProductsList(){
             ((maxCount == undefined) || (maxCount != undefined && parseInt(producto.cost) <= maxCount))){
 
             htmlContentToAppend += `
-            <div class="list-group-item list-group-item-action">
+            <div onclick="setProductID(${producto.id})" class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-3">
                         <img src="` + producto.image + `" alt="product image" class="img-thumbnail">
@@ -87,7 +86,7 @@ function sortAndShowProducts(sortCriteria, productsArray){
 }
 //Estas funciones ejecutan respectivamente las funciones correspondientes a los objetos en el HTML
 document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(PRODUCTOS_URL).then(function(resultObj){
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
             currentProductsArray = resultObj.data.products
             showProductsList()
@@ -141,3 +140,8 @@ document.addEventListener("DOMContentLoaded", function(e){
         showProductsList();
     });
 });
+
+function setProductID(id) {
+    localStorage.setItem("prodID", id);
+    window.location = "product-info.html"
+}

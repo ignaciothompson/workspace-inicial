@@ -260,3 +260,62 @@ a.custom-card:hover {
 #linea{
   height: 2px;
 }
+
+/*Estilos para los productos*/
+#muestra-prod{
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.galeria {
+  border: 1px solid #ccc;
+  
+}
+
+.galeria:hover {
+  border: 1px solid #777;
+}
+
+.galeria img {
+  width: 100%;
+  height: auto;
+}
+
+
+/* Estilo Comentarios*/
+
+.comment-box{
+  margin-left: 0px;
+  margin-top: 7px;
+  
+}
+#comments-prod{
+  max-width: max-content;
+  margin-top: 10px;
+  margin-left: 30px;
+}
+
+.comment{
+  margin: 0px;
+}
+
+#comment-form{
+  margin-left: 20px;
+  margin-top: 7px;
+}
+
+#submit{
+  margin-top: 5px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  background-color: #3a3a3a;
+  cursor: pointer;
+  outline: none;
+}
+
+.checked{
+  color: orange;
+}
+
