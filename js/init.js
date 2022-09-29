@@ -43,6 +43,30 @@ let getJSONData = function(url){
 //funcion para mostrar el usuario en la part e superior de la pagina
 function mostrarUsuario(){
   let etiquetaUsuario = localStorage.getItem("usuario");
-  document.getElementById("mostrar-usuario").innerHTML = `<p>` + etiquetaUsuario + `</p>`
+  document.getElementById("mostrar-usuario").innerHTML =`
+      <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        `+ etiquetaUsuario +`
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="#" id="carrito-click">`+"Mi Carrito"+`</a></li>
+        <li><a class="dropdown-item" href="#" id="perfil-click">`+"Mi Perfil"+`</a></li>
+        <li><a class="dropdown-item" href="#" id="sesion-click">`+"Cerrar Sesion"+`</a></li>
+      </ul>
+    </div>
+    `
 }
-mostrarUsuario()
+mostrarUsuario();
+
+document.getElementById("carrito-click").addEventListener("click", function(e){
+  window.location = "cart.html";
+})
+
+document.getElementById("perfil-click").addEventListener("click", function(e){
+  window.location = "my-profile.html";
+})
+
+document.getElementById("sesion-click").addEventListener("click", function(e){
+  localStorage.clear("usuario");
+  window.location = "index.html";
+})

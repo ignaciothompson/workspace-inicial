@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function(e){
             Producto = resultObj.data
             showProduct();
             showImages();
+            showRelatedProducts();
+            console.log(Producto)
         }
     })
 });
@@ -15,7 +17,7 @@ function showProduct(){
     let htmlContentToAppend = ""; 
         
     htmlContentToAppend =`
-        <div id="muestra-prod">
+        <div class="muestra-prod">
             <h2>` + Producto.name + `</h2>
             <hr>
             <p><b>`+ "Precio" +`</b></p>
@@ -78,4 +80,26 @@ function showComments(){
         document.getElementById('comments-prod').innerHTML = htmlContentToAppend;
     }
 
+}
+
+function showRelatedProducts(){
+    let htmlContentToAppend = ""; 
+    for(let i=0; i<Producto.relatedProducts.length;i++){
+        let producto = Producto.relatedProducts[i];
+
+        htmlContentToAppend +=`
+            <div class="card" style="width: 18rem;" onclick="setProductID(${producto.id})">
+                <img src="`+producto.image+`" class="card-img-top">
+                <div class="card-body">
+                    <p class="card-text">`+producto.name+`</p>
+                </div>
+            </div>
+            `
+    }
+    document.getElementById('related-products').innerHTML = htmlContentToAppend;
+}
+
+function setProductID(id) {
+    localStorage.setItem("prodID", id);
+    window.location = "product-info.html"
 }
