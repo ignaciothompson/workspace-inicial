@@ -322,3 +322,27 @@ a.custom-card:hover {
 #dropdownMenuButton1{
   background-color: #212529;
 }
+
+#cerrar-alerta{
+  background-color: rgba(248, 215, 218, 1);
+  color: #212529;
+  border-color: rgba(248, 215, 218, 1);
+}
+
+.texto-error-carrito{
+  font-size: 14px;
+  color: rgb(235, 8, 31);
+  opacity: 0;
+}
+
+#texto-error-envio{
+  font-size: 14px;
+  color: rgb(235, 8, 31);
+  opacity: 0;
+}
+
+#error-metodo-de-pago{
+  font-size: 14px;
+  color: rgb(235, 8, 31);
+  opacity: 0;
+}
