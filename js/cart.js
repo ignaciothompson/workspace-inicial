@@ -126,12 +126,12 @@ document.getElementById("finalizar-compra").addEventListener('click', function(e
             if(tarjeta){
                 if((numeroTarjeta != "" && cvv != "" && vencimiento != "")){
                     alert("Compra exitosa!")
-                    document.getElementById("error-metodo-de-pago").style.opacity = 1;
+                    document.getElementById("error-metodo-de-pago").style.opacity = 0;
                 }
             }else if(transferencia){
                 if(numeroCuenta != ""){
                 alert("Compra exitosa!")
-                document.getElementById("error-metodo-de-pago").style.opacity = 1;
+                document.getElementById("error-metodo-de-pago").style.opacity = 0;
                 }
             }else{
                 document.getElementById("error-metodo-de-pago").style.opacity = 1;
