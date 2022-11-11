@@ -267,26 +267,12 @@ a.custom-card:hover {
   margin-top: 5px;
 }
 
-.galeria {
-  border: 1px solid #ccc;
-  
-}
-
-.galeria:hover {
-  border: 1px solid #777;
-}
-
-.galeria img {
-  width: 100%;
-  height: auto;
-}
-
-
 /* Estilo Comentarios*/
 
 .comment-box{
   margin-left: 0px;
   margin-top: 7px;
+  border: #3a3a3a;
   
 }
 #comments-prod{
@@ -345,4 +331,13 @@ a.custom-card:hover {
   font-size: 14px;
   color: rgb(235, 8, 31);
   opacity: 0;
+}
+
+.contenedor-centrado{
+  margin-left: 250px;
+  margin-right: 250px;
+}
+.titulo3{
+  margin-top: 25px;
+  margin-bottom: 25px;
 }

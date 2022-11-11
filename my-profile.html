@@ -52,8 +52,57 @@
   </nav>
   <main>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <div class="contenedor-centrado">
+        <h3 class="titulo3">Perfil</h3>
+        <hr>
+        <form class="row g-2 needs-validation" novalidate>
+          <div class="col-md-6">
+            <label for="primer-nombre" class="form-label">Primer nombre*</label>
+            <input type="text" class="form-control" id="primer-nombre" required>
+            <div class="invalid-feedback">
+              <p>Debe ingresar su nombre</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="segundo-nombre" class="form-label">Segundo nombre</label>
+            <input type="text" class="form-control" id="segundo-nombre">
+            <div class="invalid-feedback">
+              <p></p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="primer-apellido" class="form-label">Primer apellido*</label>
+            <input type="text" class="form-control" id="primer-apellido" required>
+            <div class="invalid-feedback">
+              <p>Debe ingresar su apelido</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="segundo-apellido" class="form-label">Segundo apellido</label>
+            <input type="text" class="form-control" id="segundo-apellido">
+            <div class="invalid-feedback">
+              <p></p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="email" class="form-label">E-mail*</label>
+            <input type="text" class="form-control" id="email-perfil" value= >
+            <div class="invalid-feedback">
+              <p>Debe ingresar su email</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="telefono" class="form-label">Teléfono de contacto*</label>
+            <input type="text" class="form-control" id="telefono-contacto" required>
+            <div class="invalid-feedback">
+              <p>Debe ingresar su numero de teléfono</p>
+            </div>
+          </div>
+          <hr>
+          <div class="col-12">
+            <button class="btn btn-dark" type="submit" id="guardar-cambios">Guardar cambios</button>
+          </div>
+        </form>
       </div>
     </div>
   </main>

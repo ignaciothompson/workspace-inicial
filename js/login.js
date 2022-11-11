@@ -16,9 +16,3 @@ loginButton.addEventListener("click", (logeo) =>{
         loginError.style.opacity = 1;
     }
 })
-// Desafiate(no funciona)
-//function googleSignIn(){
-//    if(GoogleUser.isSignedIn()=== true){
-//        window.location.href = "pagina-principal.html";
-//    }
-//}

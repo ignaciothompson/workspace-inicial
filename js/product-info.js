@@ -1,6 +1,13 @@
 let Producto = {};
 let comentariosArray = [];
-
+let objeto = {
+    "id": null,
+    "name": "",
+    "count": null,
+    "unitCost": null,
+    "currency": "",
+    "image": ""
+}
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
@@ -38,10 +45,19 @@ function showImages(){
     let htmlContentToAppend = ""; 
     for(let i=0; i<Producto.images.length;i++){
         let img = Producto.images[i];
-
-        htmlContentToAppend +=`
-        <img src="`+img+`" width="350" height="250" class="galeria">
-        `
+        if(i===0){
+            htmlContentToAppend +=`
+            <div class="carousel-item active">
+            <img src="`+img+`"class="d-block w 75">
+            </div>
+            `
+        }else{
+            htmlContentToAppend +=`
+            <div class="carousel-item">
+            <img src="`+img+`"class="d-block w 75">
+            </div>
+            `
+        }
     }
     document.getElementById('images-prod').innerHTML = htmlContentToAppend;
 }
@@ -103,3 +119,16 @@ function setProductID(id) {
     localStorage.setItem("prodID", id);
     window.location = "product-info.html"
 }
+
+document.getElementById("agregar-carrito").addEventListener('click',function(agregar){
+    agregar.preventDefault();
+    let objetoProducto = Object.create(objeto);
+    objetoProducto.id = Producto.id;
+    objetoProducto.name = Producto.name;
+    objetoProducto.count = 1;
+    objetoProducto.unitCost = Producto.cost;
+    objetoProducto.currency = Producto.currency;
+    objetoProducto.image = Producto.images[0];
+    localStorage.setItem("objetoProducto",JSON.stringify(objetoProducto));
+    window.location = "cart.html";
+})

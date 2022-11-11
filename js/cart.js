@@ -108,57 +108,47 @@ function calcularCostoTotal(){
     document.getElementById("costos-total").innerHTML = "USD" +" "+ valorTotal
 }
 //validaciones
-document.getElementById("finalizar-compra").addEventListener('click', function(e){
-    let calle = document.getElementById("calle").value;
-    let numero = document.getElementById("numero").value;
-    let esquina = document.getElementById("esquina").value;
-    let tarjeta = document.getElementById("tarjeta").checked;
-    let numeroTarjeta = document.getElementById("numero-tarjeta").value;
-    let cvv = document.getElementById("cvv").value;
-    let vencimiento = document.getElementById("vencimiento").value;
-    let transferencia = document.getElementById("transferencia").checked;
-    let numeroCuenta = document.getElementById("numero-cuenta").value;
+(() => {
+    'use strict'
+  
 
-    if(premium.checked || express.checked || standard.checked){
-        document.getElementById("texto-error-envio").style.opacity = 0;
-        if(calle != "" && numero != "" && esquina != ""){
-            errorDireccionInverso()
-            if(tarjeta){
-                if((numeroTarjeta != "" && cvv != "" && vencimiento != "")){
-                    alert("Compra exitosa!")
-                    document.getElementById("error-metodo-de-pago").style.opacity = 0;
-                }
-            }else if(transferencia){
-                if(numeroCuenta != ""){
-                alert("Compra exitosa!")
-                document.getElementById("error-metodo-de-pago").style.opacity = 0;
-                }
-            }else{
-                document.getElementById("error-metodo-de-pago").style.opacity = 1;
-                e.preventDefault()
-            }
+    const forms = document.querySelectorAll('.needs-validation')
+    console.log(forms)
+    
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
         }else{
-            errorDireccion()
-            e.preventDefault()
+            alert("La compra a sido exitosa")
         }
-    }else{
-        document.getElementById("error-envio").style.display = "block";
-        document.getElementById("texto-error-envio").style.opacity = 1;
-        document.getElementById("error-metodo-de-pago").style.opacity = 1;
-        errorDireccion()
-        e.preventDefault()
-    }
-})
+  
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
 
-function errorDireccion(){
-    let errorTexto = document.getElementsByClassName("texto-error-carrito");
-    for (i=0; i<errorTexto.length;i++){
-        errorTexto[i].style.opacity = 1 ;
+function pagoTarjeta(){
+    if(document.getElementById("tarjeta").checked === true){
+        document.getElementById("transferencia").disabled = true;
+        document.getElementById("numero-cuenta").disabled = true;
+    }else{
+        document.getElementById("transferencia").disabled = false;
+        document.getElementById("numero-cuenta").disabled = false;
     }
 }
-function errorDireccionInverso(){
-    let errorTexto = document.getElementsByClassName("texto-error-carrito");
-    for (i=0; i<errorTexto.length;i++){
-        errorTexto[i].style.opacity = 0 ;
+
+function pagoTransferencia(){
+    if(document.getElementById("transferencia").checked === true){
+        document.getElementById("tarjeta").disabled = true;
+        document.getElementById("numero-tarjeta").disabled = true;
+        document.getElementById("cvv").disabled = true;
+        document.getElementById("vencimiento").disabled = true;
+    }else{
+        document.getElementById("tarjeta").disabled = false;
+        document.getElementById("numero-tarjeta").disabled = false;
+        document.getElementById("cvv").disabled = false;
+        document.getElementById("vencimiento").disabled = false;
     }
 }

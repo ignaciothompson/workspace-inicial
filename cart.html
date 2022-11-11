@@ -53,32 +53,50 @@
 					<tbody id="tabla-productos">
 					</tbody>
 				</table>
-				<h5>Tipo de envío</h5>
-				<form id="envio">
-					<input type="radio" id="premium" name="opciones-envio" value="Premuim">
-					<label for="premium">Premium 2 a 5 dias (15%)</label><br>
-					<input type="radio" id="express" name="opciones-envio" value="Express">
-					<label for="express">Express 5 a 8 dias (7%)</label><br>
-					<input type="radio" id="standard" name="opciones-envio" value="Standard">
-					<label for="standard">Standard 12 a 15 dias (5%)</label>
-					<p id="texto-error-envio">Debe seleccionar una forma de envio</p>
-				</form>
-				<hr>
-				<h5 style="padding:10px;">Direccion de envío</h5>
-				<form>
-					<label for="calle">Calle:</label><br>
-					<input type="text" id="calle" name="calle" class="form-control">
-					<p class="texto-error-carrito">Ingrese una calle</p>
-					<label for="numero">Número:</label>
-					<input type="text" id="numero" name="numero" class="form-control">
-					<p class="texto-error-carrito">Ingrese un número</p>
-					<label for="esquina">Esquina:</label>
-					<input type="text" id="esquina" name="esquina" class="form-control">
-					<p class="texto-error-carrito">Ingrese una esquina</p>
-				</form>
-				<hr>
-				<h5 style="padding:10px;">Costos</h5>
-				<ul class="list-group">
+				
+				<form class="row g-2 needs-validation" novalidate>
+					<h5>Tipo de envío</h5>
+					<div class="form-check">
+						<input type="radio" class="form-check-input" id="premium" name="radio-stacked" required>
+						<label class="form-check-label" for="premium">Premium 2 a 5 dias (15%)</label>
+						
+					</div>
+					<div class="form-check">
+						<input type="radio" class="form-check-input" id="express" name="radio-stacked" required>
+						<label class="form-check-label" for="express">Express 5 a 8 dias (7%)</label>
+						
+					</div>
+					<div class="form-check">
+						<input type="radio" class="form-check-input" id="standard" name="radio-stacked" required>
+						<label class="form-check-label" for="standard">Standard 12 a 15 dias (5%)</label>
+						<div class="invalid-feedback">Debe seleccionar un metodo de envío.</div>
+					</div>
+					<hr>
+					<h5>Direccion de envío</h5>
+					<div class="col-md-6">
+						<label for="calle" class="form-label">Calle:</label>
+						<input type="text" class="form-control" id="calle" aria-describedby="validationServer03Feedback" required>
+						<div class="invalid-feedback">
+							Ingrese una calle valida.
+						</div>
+					</div>
+					<div class="col-md-3">
+						<label for="numero" class="form-label">Numero:</label>
+						<input type="text" class="form-control" id="numero" aria-describedby="validationServer03Feedback" required>
+						<div class="invalid-feedback">
+							Ingrese un número valido.
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="esquina" class="form-label">Esquina:</label>
+						<input type="text" class="form-control" id="esquina" aria-describedby="validationServer03Feedback" required>
+						<div class="invalid-feedback">
+							Ingrese una esquina valida.
+						</div>
+					</div>
+					<hr>
+					<h5>Costos</h5>
+					<ul class="list-group">
 					<li class="list-group-item">
 						<p style="margin-bottom:10px;">Subtotal</p>
 						<p id="costos-subtotal" style="float: right;margin-bottom:0px;"></p>
@@ -92,14 +110,14 @@
 					<li class="list-group-item">
 						<p style="margin-bottom:10px;">Total</p>
 						<p id="costos-total" style="float: right;margin-bottom:0px;"></p>
-						</l>
+					</li>
 				</ul>
 				<hr>
 				<h5 style="padding:10px;">Forma de pago</h5>
-				<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+				<button type="button" class="btn btn-dark" style="width: 300px;" data-bs-toggle="modal" data-bs-target="#exampleModal">
 					Agregar método de pago
 				</button>
-				<p id="error-metodo-de-pago">Debe agrgar un metodo de pago</p>
+				<p id="metodo-de-pago"></p>
 
 				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
 					aria-hidden="true">
@@ -110,52 +128,58 @@
 								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
-								<form>
-									<input type="radio" id="tarjeta">
-									<label>Tarjeta de crédito</label>
+									<div class="form-check mb-3">
+										<input type="checkbox" onchange="pagoTarjeta()" class="form-check-input" id="tarjeta" value="">
+										<label class="form-check-label" for="tarjeta">Tarjeta de credito</label>
+									</div>
 									<hr>
-									<div class="row">
-										<div class="col-7">
-											<label>Número de Tarjeta</label>
-											<br>
-											<input type="text" class="form-control" id="numero-tarjeta">
+									<div class="col-md-6">
+										<label for="numero-tarjeta" class="form-label">Número de Tarjeta</label>
+										<input type="text" class="form-control" id="numero-tarjeta" aria-describedby="validationServer03Feedback" required>
+										<div class="invalid-feedback">
+											Ingrese un número de tarjeta valido.
 										</div>
-										<div class="col-3">
-											<label>CVV</label>
-											<br>
-											<input type="text" class="form-control" id="cvv">
+									</div>
+									<div class="col-md-2">
+										<label for="cvv" class="form-label">CVV</label>
+										<input type="text" class="form-control" id="cvv" aria-describedby="validationServer03Feedback" required>
+										<div class="invalid-feedback">
+											Ingrese un CVV valido.
 										</div>
-										<br>
-										<div class="col-7" style="margin-top: 7px;">
-											<label>Vencimiento (MM/AA)</label>
-											<br>
-											<input type="text" class="form-control" id="vencimiento">
+									</div>
+									<div class="col-md-6">
+										<label for="vencimiento" class="form-label">Vencimiento (MM/AA)</label>
+										<input type="text" class="form-control" id="vencimiento" aria-describedby="validationServer03Feedback" required>
+										<div class="invalid-feedback">
+											Ingrese una fecha valida.
 										</div>
 									</div>
 									<br>
-									<input type="radio" id="transferencia">
-									<label>Transferencia</label>
+									<div class="form-check mb-3">
+										<input type="checkbox" onchange="pagoTransferencia()" class="form-check-input" id="transferencia" required>
+										<label class="form-check-label" for="transferencia">Transferencia</label>
+									</div>
 									<hr>
-									<div class="row">
-										<div class="col-7">
-											<label>Número de Cuenta</label>
-											<br>
-											<input type="text" class="form-control" id="numero-cuenta">
+									<div class="col-md-6">
+										<label for="numero-cuenta" class="form-label">Número de Cuenta</label>
+										<input type="text" class="form-control" id="numero-cuenta" aria-describedby="validationServer03Feedback" required>
+										<div class="invalid-feedback">
+											Ingrese un número de cuenta valido
 										</div>
 									</div>
-								</form>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-								<button type="button" class="btn btn-primary">Guardar Cambios</button>
+								</div>
+							<div class="modal-footer"></div>
+								<button type="button" data-bs-dismiss="modal"class="btn btn-primary" id="guardar-cambios">Guardar Cambios</button>
 							</div>
 						</div>
 					</div>
 				</div>
 				<hr>
-				<div class="d-grid gap-2">
-					<button class="btn btn-dark" id="finalizar-compra">Finalizar compra</button>
+				<div class="col-12">
+					<button class="btn btn-dark" type="submit">Completar compra</button>
 				</div>
+				</form>
+				
 				<div class="alert alert-danger" role="alert" id="error-envio" style="display: none; text-align: center;">Hubo algún error
 					<button onclick="document.getElementById('error-envio').style.display = 'none'" class="btn btn-danger" id="cerrar-alerta">Cerrar</button>
 				</div>

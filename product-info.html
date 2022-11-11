@@ -39,14 +39,34 @@
     </div>
   </nav>
   <!--secciones de la pagina-->
-  <main>
+  <main style="margin: 0px 100px 0px 100px;">
     <div id="info-prod"></div>
     <h3 style="margin-top: 4px; margin-left: 10px;">Imagenes</h3>
-    <div id="images-prod" style="margin-left:20px"></div>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner" id="images-prod">
+        
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
     <h3 style="margin-top: 10px; margin-left: 10px;">Comentarios</h3>
     <div id="comments-prod"></div>
     <div id="puntuacion"></div>
     <div id="comment-form">
+      <hr>
+      <button class="btn btn-dark" id="agregar-carrito">Agregar al carrito</button>
+      <hr>
       <h3>Deja tu Comentario</h3>
       <form>
         <textarea id="comment" name="Comentario" cols="50" rows="5"></textarea>
